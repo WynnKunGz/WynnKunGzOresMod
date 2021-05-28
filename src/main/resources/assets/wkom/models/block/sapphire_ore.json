@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "wkom:block/sapphire_ore"
+	}
+}

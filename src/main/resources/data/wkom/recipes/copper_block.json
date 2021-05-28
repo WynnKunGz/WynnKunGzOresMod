@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ccc",
+        "ccc",
+        "ccc"
+    ],
+    "key": {
+        "c": {
+            "item": "wkom:copper_ingot"
+        }
+    },
+    "result": {
+        "item": "wkom:copper_block",
+        "count": 1
+    }
+}

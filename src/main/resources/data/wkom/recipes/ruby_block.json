@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "rrr",
+        "rrr",
+        "rrr"
+    ],
+    "key": {
+        "r": {
+            "item": "wkom:ruby"
+        }
+    },
+    "result": {
+        "item": "wkom:ruby_block",
+        "count": 1
+    }
+}

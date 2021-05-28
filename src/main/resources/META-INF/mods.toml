@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[35,)"
+license="MIT"
+[[mods]]
+modId="wkom"
+version="1.0.6"
+displayName="WynnKunGzOresMod"
+credits="Thanks to PostChron and Bretzelfresser."
+authors="WynnKunGz"
+description='''
+Mod by WynnKunGz
+Textures by PostChron
+Modding Tutorial by Cy4
+Alloy Smelter by Bretzelfresser
+'''
+
+[[dependencies.wkom]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.wkom]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.4,1.17)"
+    ordering="NONE"
+    side="BOTH"
