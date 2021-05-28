@@ -184,5 +184,4 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 	private AlloyingRecipe getRecipe() {
 		return this.world.getRecipeManager().getRecipe(RecipeInit.ALLOYING_RECIPE, this, this.world).orElse(null);
 	}
-
 }
