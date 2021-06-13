@@ -14,6 +14,8 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -109,7 +111,7 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 			int burnTime = 0;
 			// checks whether there is fuel or not
 			if (fuel != ItemStack.EMPTY && burnTimes.get(fuel.getItem()) != null) {
-				recipe = getRecipe();
+				//recipe = getRecipe();
 				int tester = 0;
 				burnTime = burnTimes.get(fuel.getItem());
 				if(recipe == null){
