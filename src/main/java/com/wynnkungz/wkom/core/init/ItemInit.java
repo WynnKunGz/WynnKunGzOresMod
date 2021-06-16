@@ -5,6 +5,7 @@ import com.wynnkungz.wkom.common.material.CustomArmorMaterial;
 import com.wynnkungz.wkom.common.material.CustomToolMaterial;
 import com.wynnkungz.wkom.core.itemgroup.WKOMItemGroup;
 
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
@@ -67,5 +68,18 @@ public class ItemInit {
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
-			() -> new ArmorItem(CustomArmorMaterial.COPPER_ARMOR, null, null));
+			() -> new ArmorItem(CustomArmorMaterial.COPPER_ARMOR, EquipmentSlotType.HEAD,
+					new Item.Properties().group(WKOMItemGroup.WKOM)));
+
+	public static final RegistryObject<Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate",
+			() -> new ArmorItem(CustomArmorMaterial.COPPER_ARMOR, EquipmentSlotType.CHEST,
+					new Item.Properties().group(WKOMItemGroup.WKOM)));
+
+	public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings",
+			() -> new ArmorItem(CustomArmorMaterial.COPPER_ARMOR, EquipmentSlotType.LEGS,
+					new Item.Properties().group(WKOMItemGroup.WKOM)));
+
+	public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots",
+			() -> new ArmorItem(CustomArmorMaterial.COPPER_ARMOR, EquipmentSlotType.FEET,
+					new Item.Properties().group(WKOMItemGroup.WKOM)));
 }
