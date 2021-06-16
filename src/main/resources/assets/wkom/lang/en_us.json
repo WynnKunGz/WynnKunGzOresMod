@@ -22,5 +22,14 @@
 	"block.wkom.cobalt_ore": "Cobalt Ore",
 	"item.wkom.sapphire": "Sapphire",
 	"block.wkom.sapphire_ore": "Sapphire Ore",
-	"item.wkom.manyullyn_ingot": "Manyullyn Ingot"
+	"item.wkom.manyullyn_ingot": "Manyullyn Ingot",
+	"item.wkom.copper_sword": "Copper Sword",
+	"item.wkom.copper_pickaxe": "Copper Pickaxe",
+	"item.wkom.copper_axe": "Copper Axe",
+	"item.wkom.copper_shovel": "Copper Shovel",
+	"item.wkom.copper_hoe": "Copper Hoe",
+	"item.wkom.copper_helmet": "Copper Helmet",
+	"item.wkom.copper_chestplate": "Copper Chestplate",
+	"item.wkom.copper_leggings": "Copper Leggings",
+	"item.wkom.copper_boots": "Copper Boots"
 }
