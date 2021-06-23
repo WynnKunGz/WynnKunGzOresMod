@@ -7,7 +7,11 @@ import com.wynnkungz.wkom.core.itemgroup.WKOMItemGroup;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -52,19 +56,19 @@ public class ItemInit {
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_PICKAXE = ITEMS.register("copper_pickaxe",
-			() -> new SwordItem(CustomToolMaterial.COPPER_TOOL, 4, 1.2f,
+			() -> new PickaxeItem(CustomToolMaterial.COPPER_TOOL, 4, 1.2f,
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe",
-			() -> new SwordItem(CustomToolMaterial.COPPER_TOOL, 9, 0.9f,
+			() -> new AxeItem(CustomToolMaterial.COPPER_TOOL, 9, 0.9f,
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_SHOVEL = ITEMS.register("copper_shovel",
-			() -> new SwordItem(CustomToolMaterial.COPPER_TOOL, 4, 1f,
+			() -> new ShovelItem(CustomToolMaterial.COPPER_TOOL, 4, 1f,
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe",
-			() -> new SwordItem(CustomToolMaterial.COPPER_TOOL, 1, 3f,
+			() -> new HoeItem(CustomToolMaterial.COPPER_TOOL, 1, 3f,
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
