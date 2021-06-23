@@ -9,7 +9,7 @@ import net.minecraft.item.crafting.Ingredient;
 
 public enum CustomToolMaterial implements IItemTier{
 
-	COPPER_TOOL(2, 192, 6f, 4f, 14, () -> Ingredient.fromItems(ItemInit.COPPER_INGOT.get()));
+	COPPER_TOOL(2, 192, 6f, 1f, 14, () -> Ingredient.fromItems(ItemInit.COPPER_INGOT.get()));
 	
 	private final int harvestLevel;
 	private final int maxUses;
