@@ -15,7 +15,7 @@ public class WKOMItemGroup extends ItemGroup {
 
 	@Override
 	public ItemStack createIcon() {
-		return new ItemStack(ItemInit.RUBY.get());
+		return new ItemStack(ItemInit.ENDERIUM_INGOT.get());
 	}
 
 }
