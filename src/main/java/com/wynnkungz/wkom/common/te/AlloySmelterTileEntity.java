@@ -137,7 +137,7 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 		if (smelting && recipe != null && checkFuel()) {
 			work(recipe);
 		}
-		// activates it when your alloy smelter is smelting :-)
+		// activates it when your alloy smelter is doing its job.
 		BlockState state = world.getBlockState(getPos());
 		if (state.get(BlockStateProperties.POWERED) != smelting) {
 			world.setBlockState(pos, state.with(BlockStateProperties.POWERED, smelting),
@@ -154,7 +154,7 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 		}
 		return hasFuel;
 	}
-	//does hte inital stuff when u want to start alloying
+	//does the initial stuff when u want to start alloying
 	private void startSmelting(AlloyingRecipe recipe) {
 		WynnkungzOresMod.LOGGER.debug("the smelting has been started");
 		getStackInSlot(0).shrink(1);
@@ -168,7 +168,7 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 	}
 	//called every tick during alloying
 	private void work(AlloyingRecipe recipe) {
-		WynnkungzOresMod.LOGGER.debug("it works 4 now");
+		WynnkungzOresMod.LOGGER.debug("it works for now");
 		if (counter > 0 && smeltingTime > 0)
 			counter--;
 		else
