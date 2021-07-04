@@ -68,7 +68,7 @@ public class ItemInit {
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe",
-			() -> new HoeItem(CustomToolMaterial.COPPER_TOOL, 1, 3f,
+			() -> new HoeItem(CustomToolMaterial.COPPER_TOOL, 1, 3f, 
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
