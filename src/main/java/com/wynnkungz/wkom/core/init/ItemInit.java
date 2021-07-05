@@ -52,23 +52,23 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_SWORD = ITEMS.register("copper_sword",
-			() -> new SwordItem(CustomToolMaterial.COPPER_TOOL, 6, 1.6f,
+			() -> new SwordItem(CustomToolMaterial.COPPER_TOOL, 3, -2.4f,
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_PICKAXE = ITEMS.register("copper_pickaxe",
-			() -> new PickaxeItem(CustomToolMaterial.COPPER_TOOL, 4, 1.2f,
+			() -> new PickaxeItem(CustomToolMaterial.COPPER_TOOL, 1, -2.8f,
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe",
-			() -> new AxeItem(CustomToolMaterial.COPPER_TOOL, 9, 0.9f,
+			() -> new AxeItem(CustomToolMaterial.COPPER_TOOL, 6, -3.1f,
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_SHOVEL = ITEMS.register("copper_shovel",
-			() -> new ShovelItem(CustomToolMaterial.COPPER_TOOL, 4, 1f,
+			() -> new ShovelItem(CustomToolMaterial.COPPER_TOOL, 1, -3f,
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe",
-			() -> new HoeItem(CustomToolMaterial.COPPER_TOOL, 1, 3f, 
+			() -> new HoeItem(CustomToolMaterial.COPPER_TOOL, -2, -1f, 
 					new Item.Properties().group(WKOMItemGroup.WKOM)));
 
 	public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
