@@ -104,7 +104,6 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 		if (this.world == null || this.world.isRemote)
 			return;
 		if (!smelting) {
-			@SuppressWarnings("deprecation")
 			Map<Item, Integer> burnTimes = AbstractFurnaceTileEntity.getBurnTimes();
 			ItemStack fuel = getStackInSlot(3);
 			int burnTime = 0;
@@ -182,7 +181,6 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 		smelting = false;
 	}
 
-	@SuppressWarnings("unused")
 	private AlloyingRecipe getRecipe() {
 		return this.world.getRecipeManager().getRecipe(RecipeInit.ALLOYING_RECIPE, this, this.world).orElse(null);
 	}
