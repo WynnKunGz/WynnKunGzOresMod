@@ -19,7 +19,7 @@ public class BlockInit {
 
 	public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore",
 			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.ORANGE_TERRACOTTA)
-					.hardnessAndResistance(3f, 3f).harvestTool(ToolType.PICKAXE).harvestLevel(1)
+					.hardnessAndResistance(3f, 3f).harvestTool(ToolType.PICKAXE).harvestLevel(0)
 					.sound(SoundType.STONE)));
 	
 	public static final RegistryObject<Block> RUBY_ORE = BLOCKS.register("ruby_ore",
@@ -34,7 +34,7 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> COPPER_BLOCK = BLOCKS.register("copper_block",
 			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.ORANGE_TERRACOTTA)
-					.hardnessAndResistance(5f, 6f).harvestTool(ToolType.PICKAXE).harvestLevel(1)
+					.hardnessAndResistance(5f, 6f).harvestTool(ToolType.PICKAXE).harvestLevel(0)
 					.sound(SoundType.METAL)));
 	
 	public static final RegistryObject<Block> ENDERIUM_ORE = BLOCKS.register("enderium_ore", 
@@ -57,7 +57,7 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> ARDITE_ORE = BLOCKS.register("ardite_ore", 
 			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.RED)
-					.hardnessAndResistance(40f, 1200f).harvestTool(ToolType.PICKAXE).harvestLevel(3)
+					.hardnessAndResistance(40f, 1200f).harvestTool(ToolType.PICKAXE).harvestLevel(4)
 					.sound(SoundType.NETHER_ORE)));
 	
 	public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", 
@@ -67,7 +67,7 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> COBALT_ORE = BLOCKS.register("cobalt_ore", 
 			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.BLUE)
-					.hardnessAndResistance(40f, 1200f).harvestTool(ToolType.PICKAXE).harvestLevel(3)
+					.hardnessAndResistance(40f, 1200f).harvestTool(ToolType.PICKAXE).harvestLevel(4)
 					.sound(SoundType.NETHER_ORE)));
 	
 	public static final RegistryObject<Block> SAPPHIRE_ORE = BLOCKS.register("sapphire_ore", 
