@@ -55,5 +55,4 @@ public class AlloySmelterScreen extends ContainerScreen<AlloySmelterContainer>{
 		int y = (this.height - this.ySize) / 2;
 		this.blit(matrixStack, x, y, 0, 0, this.xSize, this.ySize);
 	}
-	
 }
