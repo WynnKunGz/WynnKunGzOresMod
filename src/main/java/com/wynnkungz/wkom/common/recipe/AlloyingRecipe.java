@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.wynnkungz.wkom.WynnkungzOresMod;
+import com.wynnkungz.wkom.common.te.AlloySmelterTileEntity;
 import com.wynnkungz.wkom.core.init.ItemInit;
 import com.wynnkungz.wkom.core.init.RecipeInit;
 
@@ -39,15 +40,7 @@ public class AlloyingRecipe implements IRecipe<IInventory> {
 
 	@Override
 	public boolean matches(IInventory inv, World worldIn) {
-		boolean test = false;
-		for (int i = 0; i < 3; i++) {
-			ItemStack stack = inv.getStackInSlot(i);
-			if (input1.test(stack) || input2.test(stack) || input3.test(stack)) {
-				test = true;
-			} else
-				return false;
-		}
-		return test;
+		return true;
 	}
 
 	@Override
@@ -87,10 +80,17 @@ public class AlloyingRecipe implements IRecipe<IInventory> {
 	public boolean isValid(ItemStack input) {
 		return input1.test(input) || input2.test(input) || input3.test(input);
 	}
+	public boolean isValid(ItemStack input1, ItemStack input2, ItemStack input3) {
+		if(input3.isEmpty()) {
+			return this.input1.test(input1) && this.input2.test(input2);
+		} else {
+			return this.input1.test(input1) && this.input2.test(input2) && this.input3.test(input3);
+		}		
+	}
 
 	@Override
 	public boolean canFit(int width, int height) {
-		return true;
+		return false;
 	}
 
 	private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
