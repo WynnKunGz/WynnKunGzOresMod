@@ -1,7 +1,5 @@
 package com.wynnkungz.wkom.common.te;
 
-import java.util.Map;
-
 import com.wynnkungz.wkom.WynnkungzOresMod;
 import com.wynnkungz.wkom.common.container.AlloySmelterContainer;
 import com.wynnkungz.wkom.common.recipe.AlloyingRecipe;
@@ -12,18 +10,17 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.Constants;
 
 public class AlloySmelterTileEntity extends LockableLootTileEntity implements ITickableTileEntity {
@@ -33,7 +30,6 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 
 	protected NonNullList<ItemStack> items;
 	private int counter, smeltingTime;
-	private boolean smelting;
 	private AlloyingRecipe recipe;
 
 	protected AlloySmelterTileEntity(TileEntityType<?> typeIn) {
@@ -41,7 +37,6 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 		items = NonNullList.withSize(slots, ItemStack.EMPTY);
 		counter = 0;
 		smeltingTime = 0;
-		smelting = false;
 		recipe = null;
 	}
 
@@ -79,7 +74,6 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 		super.write(compound);
 		compound.putInt("counter", counter);
 		compound.putInt("smeltingTime", smeltingTime);
-		compound.putBoolean("isSmelting", smelting);
 		if (!this.checkLootAndWrite(compound)) {
 			ItemStackHelper.saveAllItems(compound, this.items);
 		}
@@ -92,7 +86,6 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 		super.read(state, nbt);
 		counter = nbt.getInt("counter");
 		smeltingTime = nbt.getInt("smeltingTime");
-		smelting = nbt.getBoolean("isSmelting");
 		this.items = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
 		if (!this.checkLootAndRead(nbt)) {
 			ItemStackHelper.loadAllItems(nbt, this.items);
@@ -101,87 +94,63 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 
 	@Override
 	public void tick() {
-		if (this.world == null || this.world.isRemote)
+		if (this.world == null || this.world.isRemote || RecipeInit.getRecipes(RecipeInit.ALLOYING_RECIPE, world.getRecipeManager()) == null)
 			return;
-		if (!smelting) {
-			Map<Item, Integer> burnTimes = AbstractFurnaceTileEntity.getBurnTimes();
-			ItemStack fuel = getStackInSlot(3);
-			int burnTime = 0;
-			// checks whether there is fuel or not
-			if (fuel != ItemStack.EMPTY && burnTimes.get(fuel.getItem()) != null) {
-				//recipe = getRecipe();
-				int tester = 0;
-				burnTime = burnTimes.get(fuel.getItem());
-				if(recipe == null){
-					WynnkungzOresMod.LOGGER.debug("recipe is Null, der scheiﬂ soll endlich funktionieren");
-					return;
-				}
-				WynnkungzOresMod.LOGGER.debug(burnTime + "das sollte jetzt hoffentlich die BurnTime sein");
-				//checks if every input matches, no duplicates allowed
-				for (int i = 0; i < 3; i++) {
-					for (Ingredient input : recipe.getInputs()) {
-						ItemStack[] stacks = input.getMatchingStacks();
-						if (stacks[0].getItem() == getStackInSlot(i).getItem()) {
-							input = Ingredient.EMPTY;
-							tester++;
-						}
-					}
-				}
-				WynnkungzOresMod.LOGGER.debug("" + tester + "ich muss die Zeilen f¸llen, damits auff‰llt");
-				if (tester >= 2) {
-					this.smeltingTime = burnTime;
-					startSmelting(recipe);
-				}
+		if (RecipeInit.getRecipes(RecipeInit.ALLOYING_RECIPE, world.getRecipeManager()).values().size() == 0)
+			return;
+		ItemStack input1 = getStackInSlot(0);
+		ItemStack input2 = getStackInSlot(1);
+		ItemStack input3 = getStackInSlot(2);
+		ItemStack fuel = getStackInSlot(3);
+		ItemStack output = getStackInSlot(4);
+		for (final IRecipe<?> recipe : RecipeInit.getRecipes(RecipeInit.ALLOYING_RECIPE, world.getRecipeManager())
+				.values()) {
+			this.recipe = (AlloyingRecipe) recipe;
+			if (counter <= 0 && this.recipe.isValid(input1, input2, input3) && checkOutput(output) && checkFuel(fuel)) {
+				counter = 200;
+				input1.shrink(1);
+				input2.shrink(1);
+				input3.shrink(1);
 			}
-		}
-		if (smelting && recipe != null && checkFuel()) {
-			work(recipe);
 		}
 		// activates it when your alloy smelter is doing its job.
 		BlockState state = world.getBlockState(getPos());
-		if (state.get(BlockStateProperties.POWERED) != smelting) {
-			world.setBlockState(pos, state.with(BlockStateProperties.POWERED, smelting),
+		if (state.get(BlockStateProperties.POWERED) != smeltingTime > 0) {
+			world.setBlockState(pos, state.with(BlockStateProperties.POWERED, smeltingTime > 0),
 					Constants.BlockFlags.NOTIFY_NEIGHBORS + Constants.BlockFlags.BLOCK_UPDATE);
 		}
-	}
-	//updates your fuel time
-	private boolean checkFuel(){
-		boolean hasFuel = smeltingTime > 0;
-		if(hasFuel)
-			smeltingTime--;
-		else if(getStackInSlot(3) != ItemStack.EMPTY && getStackInSlot(3).getBurnTime() > 0){
-		smeltingTime = getStackInSlot(3).getBurnTime();
-		}
-		return hasFuel;
-	}
-	//does the initial stuff when u want to start alloying
-	private void startSmelting(AlloyingRecipe recipe) {
-		WynnkungzOresMod.LOGGER.debug("the smelting has been started");
-		getStackInSlot(0).shrink(1);
-		getStackInSlot(1).shrink(1);
-		getStackInSlot(2).shrink(1);
-		getStackInSlot(3).shrink(1);
-
-		smelting = true;
-		counter = alloyingTime;
-
-	}
-	//called every tick during alloying
-	private void work(AlloyingRecipe recipe) {
-		WynnkungzOresMod.LOGGER.debug("it works for now");
-		if (counter > 0 && smeltingTime > 0)
+		if (counter > 0 && smeltingTime > 0) {
 			counter--;
-		else
-			endSmelting(recipe);
-	}
-	//ends the alloying 
-	private void endSmelting(AlloyingRecipe recipe) {
-		WynnkungzOresMod.LOGGER.debug("and it ends");
-		setInventorySlotContents(4, recipe.getRecipeOutput().copy());
-		smelting = false;
+			smeltingTime--;
+			if (counter == 0) {
+				if (output.isEmpty()) {
+					setInventorySlotContents(4, this.recipe.getRecipeOutput().copy());
+				} else {
+					output.grow(this.recipe.getRecipeOutput().getCount());
+				}
+			} else {
+				checkFuel(fuel);
+			}
+		}
 	}
 
-	private AlloyingRecipe getRecipe() {
-		return this.world.getRecipeManager().getRecipe(RecipeInit.ALLOYING_RECIPE, this, this.world).orElse(null);
+	protected boolean checkFuel(ItemStack fuel) {
+		if (this.smeltingTime > 0)
+			return true;
+		if (ForgeHooks.getBurnTime(fuel) > 0) {
+			fuel.shrink(1);
+			smeltingTime = ForgeHooks.getBurnTime(fuel);
+			return true;
+		}
+		return false;
+	}
+
+	private boolean checkOutput(ItemStack output) {
+		if (output.isEmpty())
+			return true;
+		if (output.getItem() == recipe.getRecipeOutput().getItem()
+				&& output.getCount() + recipe.getRecipeOutput().getCount() <= output.getMaxStackSize())
+			return true;
+		return false;
 	}
 }
