@@ -103,7 +103,6 @@ public class AlloyingRecipe implements IRecipe<IInventory> {
 		public AlloyingRecipe read(ResourceLocation recipeId, JsonObject json) {
 			final JsonElement inputEl = JSONUtils.isJsonArray(json, "input") ? JSONUtils.getJsonArray(json, "input")
 					: JSONUtils.getJsonObject(json, "input");
-			readInputs(inputEl);
 			final Ingredient[] inputs = readInputs(inputEl);
 
 			final ItemStack output = ShapedRecipe.deserializeItem(JSONUtils.getJsonObject(json, "output"));
@@ -112,7 +111,7 @@ public class AlloyingRecipe implements IRecipe<IInventory> {
 		}
 
 		private Ingredient[] readInputs(JsonElement element) {
-			if (element.isJsonArray() || element.isJsonNull())
+			if (!element.isJsonArray() || element.isJsonNull())
 				throw new JsonIOException("error, has to have at least two inputs");
 			Ingredient input1 = Ingredient.deserialize(JSONUtils.getJsonArray(element, "1"));
 			Ingredient input2 = Ingredient.deserialize(JSONUtils.getJsonArray(element, "2"));
