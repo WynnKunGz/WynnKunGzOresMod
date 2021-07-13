@@ -4,7 +4,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.wynnkungz.wkom.WynnkungzOresMod;
-import com.wynnkungz.wkom.common.te.AlloySmelterTileEntity;
 import com.wynnkungz.wkom.core.init.ItemInit;
 import com.wynnkungz.wkom.core.init.RecipeInit;
 
