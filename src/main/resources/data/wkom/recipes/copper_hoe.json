@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "cc",
+        "s ",
+        "s "
+    ],
+    "key": {
+        "c": {
+            "item": "wkom:copper_ingot"
+        },
+        "s": {
+        	"item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "wkom:copper_hoe",
+        "count": 1
+    }
+}
