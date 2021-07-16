@@ -105,8 +105,9 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 		ItemStack output = getStackInSlot(4);
 		for (final IRecipe<?> recipe : RecipeInit.getRecipes(RecipeInit.ALLOYING_RECIPE, world.getRecipeManager())
 				.values()) {
-			this.recipe = (AlloyingRecipe) recipe;
-			if (counter <= 0 && this.recipe.isValid(input1, input2, input3) && checkOutput(output) && checkFuel(fuel)) {
+			AlloyingRecipe currRecipe = (AlloyingRecipe) recipe;
+			if (counter <= 0 && currRecipe.isValid(input1, input2, input3) && checkOutput(output) && checkFuel(fuel)) {
+				this.recipe = currRecipe;
 				counter = 200;
 				input1.shrink(1);
 				input2.shrink(1);
