@@ -20,13 +20,13 @@ public class FeatureInit {
 				BlockInit.URANIUM_ORE.get().getDefaultState(), 4, 0, 32, 4);
 		addOre(event, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, 
 				BlockInit.TIN_ORE.get().getDefaultState(), 8, 0, 48, 8);
-		addOre(event, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, 
+		addOre(event, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
 				BlockInit.TUNGSTEN_ORE.get().getDefaultState(), 6, 0, 48, 8);
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK, 
 				BlockInit.ARDITE_ORE.get().getDefaultState(), 3, 0, 32, 4);
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK, 
 				BlockInit.COBALT_ORE.get().getDefaultState(), 3, 0, 32, 4);
-		addOre(event, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, 
+		addOre(event, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
 				BlockInit.SAPPHIRE_ORE.get().getDefaultState(), 4, 0, 48, 6);
 	}
 
