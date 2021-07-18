@@ -3,14 +3,14 @@ loaderVersion="[35,)"
 license="MIT"
 [[mods]]
 modId="wkom"
-version="1.0.6"
+version="1.0.6 beta"
 displayName="WynnKunGz's Ores Mod"
-credits="Thanks to PostChron and Bretzelfresser."
+credits="Thanks to PostChron, Bretzelfresser, and Cy4."
 authors="WynnKunGz"
 description='''
 Mod by WynnKunGz
-Textures by PostChron
-Modding Tutorial by Cy4
+Textures by WynnKunGz, PostChron
+Modding Tutorials by Cy4
 Alloy Smelter by Bretzelfresser
 '''
 
