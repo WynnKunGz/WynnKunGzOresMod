@@ -36,7 +36,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> COBALT_INGOT = ITEMS.register("cobalt_ingot",
 			() -> new Item(new Item.Properties().group(WKOMItemsItemGroup.ITEMS)));
 
-
 	public static final RegistryObject<Item> MANYULLYN_INGOT = ITEMS.register("manyullyn_ingot",
 			() -> new Item(new Item.Properties().group(WKOMItemsItemGroup.ITEMS)));
 	
