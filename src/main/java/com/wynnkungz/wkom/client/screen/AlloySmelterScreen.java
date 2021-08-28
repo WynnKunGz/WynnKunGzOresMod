@@ -2,7 +2,7 @@ package com.wynnkungz.wkom.client.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.wynnkungz.wkom.WynnkungzOresMod;
+import com.wynnkungz.wkom.WynnKunGzOresMod;
 import com.wynnkungz.wkom.common.container.AlloySmelterContainer;
 
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
@@ -15,7 +15,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class AlloySmelterScreen extends ContainerScreen<AlloySmelterContainer>{
 
-	private static final ResourceLocation DISPLAY_CASE_GUI = new ResourceLocation(WynnkungzOresMod.MOD_ID, "textures/gui/display_case.png");
+	private static final ResourceLocation DISPLAY_CASE_GUI = new ResourceLocation(WynnKunGzOresMod.MOD_ID, "textures/gui/display_case.png");
 	
 	public AlloySmelterScreen(AlloySmelterContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
 		super(screenContainer, inv, titleIn);

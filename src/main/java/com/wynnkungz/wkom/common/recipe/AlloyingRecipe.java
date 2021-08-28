@@ -3,7 +3,7 @@ package com.wynnkungz.wkom.common.recipe;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
-import com.wynnkungz.wkom.WynnkungzOresMod;
+import com.wynnkungz.wkom.WynnKunGzOresMod;
 import com.wynnkungz.wkom.core.init.ItemInit;
 import com.wynnkungz.wkom.core.init.RecipeInit;
 
@@ -95,7 +95,7 @@ public class AlloyingRecipe implements IRecipe<IInventory> {
 	private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
 			implements IRecipeSerializer<AlloyingRecipe> {
 		Serializer() {
-			this.setRegistryName(WynnkungzOresMod.MOD_ID, "alloying_recipe");
+			this.setRegistryName(WynnKunGzOresMod.MOD_ID, "alloying_recipe");
 		}
 
 		@Override
@@ -117,7 +117,7 @@ public class AlloyingRecipe implements IRecipe<IInventory> {
 			Ingredient input3 = Ingredient.EMPTY;
 			if (!JSONUtils.getJsonArray(element, "3").isJsonNull())
 				input3 = Ingredient.deserialize(JSONUtils.getJsonArray(element, "3"));
-			WynnkungzOresMod.LOGGER.debug(path(input1) + " | " + path(input2) + " | " + path(input3));
+			WynnKunGzOresMod.LOGGER.debug(path(input1) + " | " + path(input2) + " | " + path(input3));
 			return new Ingredient[] { input1, input2, input3 };
 		}
 

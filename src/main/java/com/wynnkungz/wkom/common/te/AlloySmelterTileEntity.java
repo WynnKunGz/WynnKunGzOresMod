@@ -1,6 +1,6 @@
 package com.wynnkungz.wkom.common.te;
 
-import com.wynnkungz.wkom.WynnkungzOresMod;
+import com.wynnkungz.wkom.WynnKunGzOresMod;
 import com.wynnkungz.wkom.common.container.AlloySmelterContainer;
 import com.wynnkungz.wkom.common.recipe.AlloyingRecipe;
 import com.wynnkungz.wkom.core.init.RecipeInit;
@@ -61,7 +61,7 @@ public class AlloySmelterTileEntity extends LockableLootTileEntity implements IT
 
 	@Override
 	protected ITextComponent getDefaultName() {
-		return new TranslationTextComponent("container." + WynnkungzOresMod.MOD_ID + ".display_case");
+		return new TranslationTextComponent("container." + WynnKunGzOresMod.MOD_ID + ".display_case");
 	}
 
 	@Override
