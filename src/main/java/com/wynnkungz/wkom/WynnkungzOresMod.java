@@ -9,8 +9,8 @@ import com.wynnkungz.wkom.core.init.FeatureInit;
 import com.wynnkungz.wkom.core.init.ItemInit;
 import com.wynnkungz.wkom.core.init.RecipeInit;
 import com.wynnkungz.wkom.core.init.TileEntityTypesInit;
-import com.wynnkungz.wkom.core.itemgroup.WKOMItemGroup;
-
+import com.wynnkungz.wkom.core.init.ToolInit;
+import com.wynnkungz.wkom.core.itemgroup.WKOMBlocksItemGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -25,19 +25,20 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("wkom")
-@Mod.EventBusSubscriber(modid = WynnkungzOresMod.MOD_ID, bus = Bus.MOD)
-public class WynnkungzOresMod {
+@Mod.EventBusSubscriber(modid = WynnKunGzOresMod.MOD_ID, bus = Bus.MOD)
+public class WynnKunGzOresMod {
 
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "wkom";
 
-	public WynnkungzOresMod() {
+	public WynnKunGzOresMod() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		
 		bus.addGenericListener(IRecipeSerializer.class, RecipeInit::registerRecipes);
 		
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
+		ToolInit.TOOLS.register(bus);
 		TileEntityTypesInit.TILE_ENTITY_TYPE.register(bus);
 		ContainerTypesInit.CONTAINER_TYPES.register(bus);
 
@@ -48,7 +49,7 @@ public class WynnkungzOresMod {
 	@SubscribeEvent
 	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
 		BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-			event.getRegistry().register(new BlockItem(block, new Item.Properties().group(WKOMItemGroup.WKOM))
+			event.getRegistry().register(new BlockItem(block, new Item.Properties().group(WKOMBlocksItemGroup.BLOCKS))
 					.setRegistryName(block.getRegistryName()));
 		});
 	}
