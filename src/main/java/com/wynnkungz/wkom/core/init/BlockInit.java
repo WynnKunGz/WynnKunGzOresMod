@@ -1,6 +1,6 @@
 package com.wynnkungz.wkom.core.init;
 
-import com.wynnkungz.wkom.WynnkungzOresMod;
+import com.wynnkungz.wkom.WynnKunGzOresMod;
 import com.wynnkungz.wkom.common.block.AlloySmelterBlock;
 
 import net.minecraft.block.AbstractBlock;
@@ -15,7 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockInit {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
-			WynnkungzOresMod.MOD_ID);
+			WynnKunGzOresMod.MOD_ID);
 
 	public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore",
 			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.ORANGE_TERRACOTTA)
