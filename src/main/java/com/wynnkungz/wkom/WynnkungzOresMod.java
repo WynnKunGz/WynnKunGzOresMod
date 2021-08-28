@@ -3,6 +3,7 @@ package com.wynnkungz.wkom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.wynnkungz.wkom.core.init.ArmorInit;
 import com.wynnkungz.wkom.core.init.BlockInit;
 import com.wynnkungz.wkom.core.init.ContainerTypesInit;
 import com.wynnkungz.wkom.core.init.FeatureInit;
@@ -39,6 +40,7 @@ public class WynnKunGzOresMod {
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
 		ToolInit.TOOLS.register(bus);
+		ArmorInit.ARMORS.register(bus);
 		TileEntityTypesInit.TILE_ENTITY_TYPE.register(bus);
 		ContainerTypesInit.CONTAINER_TYPES.register(bus);
 
