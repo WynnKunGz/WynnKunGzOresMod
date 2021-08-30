@@ -3,7 +3,7 @@ loaderVersion="[35,)"
 license="MIT"
 [[mods]]
 modId="wkom"
-version="1.0.6 beta"
+version="pre-1.0.6"
 displayName="WynnKunGz's Ores Mod"
 credits="Thanks to PostChron, Bretzelfresser, Sir Squid, peewee, and Cy4."
 authors="WynnKunGz"
