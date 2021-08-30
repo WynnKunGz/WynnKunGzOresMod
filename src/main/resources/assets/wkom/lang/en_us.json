@@ -4,7 +4,7 @@
 	"item.wkom.ruby": "Ruby",
 	"block.wkom.ruby_ore": "Ruby Ore",
 	"item.wkom.uranium_ingot": "Uranium Ingot",
-	"itemGroup.wkom": "WynnKunGz's Ores Mod",
+	"itemGroup.items": "WynnKunGz's Ores Mod Items",
 	"block.wkom.uranium_ore": "Uranium Ore",
 	"block.wkom.copper_block": "Block of Copper",
 	"item.wkom.enderium_ingot": "Enderium Ingot",
@@ -31,5 +31,8 @@
 	"item.wkom.copper_helmet": "Copper Helmet",
 	"item.wkom.copper_chestplate": "Copper Chestplate",
 	"item.wkom.copper_leggings": "Copper Leggings",
-	"item.wkom.copper_boots": "Copper Boots"
+	"item.wkom.copper_boots": "Copper Boots",
+	"itemGroup.blocks": "WynnKunGz's Ores Mod Blocks",
+	"itemGroup.tools": "WynnKunGz's Ores Mod Tools",
+	"itemGroup.armors": "WynnKunGz's Ores Mod Armors"
 }
